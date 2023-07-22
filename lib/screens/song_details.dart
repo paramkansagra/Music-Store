@@ -61,7 +61,7 @@ class _SongDetailsState extends State<SongDetails> {
           ),
         ],
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -103,6 +103,7 @@ class _SongDetailsState extends State<SongDetails> {
     // we would display them in a scrollable list view
     // other details could be shown in a card
     return SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
