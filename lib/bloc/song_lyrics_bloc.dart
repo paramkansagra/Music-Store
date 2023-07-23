@@ -6,7 +6,7 @@ import 'package:intership_app/resources/song_lyrics_api_provider.dart';
 enum SongLyricsAction { fetchLyrics }
 
 class SongLyricsBloc {
-  int commontrack_id = 0;
+  int commonTrackId = 0;
 
   final _stateStreamController = StreamController<SongLyrics>();
   StreamSink<SongLyrics> get _songLyricsSink => _stateStreamController.sink;
@@ -23,7 +23,7 @@ class SongLyricsBloc {
     _stateStreamController.close();
   }
 
-  SongLyricsBloc(this.commontrack_id) {
+  SongLyricsBloc(this.commonTrackId) {
     SongLyrics songLyrics =
         SongLyrics(lyricsId: 0, explicit: 0, lyricsBody: []);
     _songLyricsEventStream.listen(
@@ -31,7 +31,7 @@ class SongLyricsBloc {
         if (event == SongLyricsAction.fetchLyrics) {
           try {
             SongLyricsApiProvider api = SongLyricsApiProvider();
-            songLyrics = await api.fetchSongLyrics(commontrack_id);
+            songLyrics = await api.fetchSongLyrics(commonTrackId);
 
             if (songLyrics.lyricsId != 0) {
               _songLyricsSink.add(songLyrics);

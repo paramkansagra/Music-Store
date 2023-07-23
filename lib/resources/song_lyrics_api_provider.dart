@@ -6,9 +6,9 @@ import 'package:intership_app/model/song_lyrics.dart';
 import 'package:intership_app/resources/song_lyrics_from_api.dart';
 
 class SongLyricsApiProvider {
-  Future<SongLyrics> fetchSongLyrics(int commontrack_id) async {
+  Future<SongLyrics> fetchSongLyrics(int commonTrackId) async {
     final url = Uri.parse(
-        "https://api.musixmatch.com/ws/1.1/track.lyrics.get?commontrack_id=$commontrack_id&apikey=$apiKey");
+        "https://api.musixmatch.com/ws/1.1/track.lyrics.get?commontrack_id=$commonTrackId&apikey=$apiKey");
     final responce = await http.get(url);
 
     var parsedJson = jsonDecode(responce.body);

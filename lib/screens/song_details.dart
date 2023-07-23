@@ -85,7 +85,7 @@ class _SongDetailsState extends State<SongDetails> {
                   } else if (snapshot.hasError) {
                     return const Text("Some error occured ");
                   } else if (snapshot.hasData) {
-                    return SizedBox(child: SongView(snapshot.data!));
+                    return SizedBox(child: songView(snapshot.data!));
                   } else {
                     return const Text("Some error occured");
                   }
@@ -98,12 +98,12 @@ class _SongDetailsState extends State<SongDetails> {
     );
   }
 
-  Widget SongView(SongLyrics songLyrics) {
+  Widget songView(SongLyrics songLyrics) {
     // we have the song lyrics
     // we would display them in a scrollable list view
     // other details could be shown in a card
     return SingleChildScrollView(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
